@@ -1,13 +1,6 @@
-/* .body{
-    display: inline;
-    background-color: rgb(14, 14, 14);
-    margin:auto;
-    width: auto;
-    padding: center;
 
-} */
 *{
-    background-color: #635363;
+    background-color: #1f1c1f;
 }
 .square{
     /* width: 50%;
@@ -21,54 +14,7 @@
     padding-bottom: 80px;
 
 }
-.Row1{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 10%;
-    /* border: 2px solid black; */
-    /* border-radius: 3px; */
-    
-
-}
-.Row2{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 10%;
-    /* border: 2px solid black; */
-    /* border-radius: 3px; */
-}
-.Row3{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 10%;
-    /* border: 2px solid black; */
-    /* border-radius: 3px; */
-}
-.Row4{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 10%;
-    /* border: 2px solid black; */
-    border-radius: 3px;
-}
-.Row5{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 10%;
-    /* border: 2px solid black; */
-    border-radius: 3px;
-}
-
+ 
 .bg-red{
     /* background-color: red; */
     /* max-width: 10vw; */
@@ -78,41 +24,48 @@
 .container{
     align-items: center;
     color: yellow;
-    width: 200px;
+    width: 50%;
     height: 40%;
     padding-bottom: 5px;
+    border: 50px solid rgba(32, 30, 32, 0.925);
+    padding: 10px;
+    border-radius: 5px;
 
 }
 .button{
     color: tomato;
     background-color: beige;
-    padding: 15px;
-    border-radius: 20px;
-    border: 2px solid rgb(66, 56, 56);
+    padding: 30px;
+    border-radius: 6px;
+    /* border: 2px solid rgb(66, 56, 56); */
     cursor: pointer;
     border: 3px solid rgba(160, 96, 96, 0.895);
     
 }
-.search{
-    font-size: 20px;
-    transform-origin: 1px;
-    transform-style: unset;
-}
-.search::after{
-    transition-timing-function: 0.5sec;
-    animation-name: blink;
-    animation-duration: 800ms;
-    content: after;
-}
+
 .Row input{
     margin: 0px;
     padding: 4px;
-    color: rgb(92, 33, 33);
-    background-color: beige;
-    border: 3px solid #873e87
+    background-color: rgba(32, 30, 32, 0.925);
+    border: 6px solid rgba(32, 30, 32, 0.925);
     border-radius: 5px;
-    margin-bottom: 6px;
-    color: black;
-    
+    margin-bottom: 9px;
+    color: :white;
+    width: 300px;
+    height: 50px;
+
+
+}
+.Row2{
+    margin-right: 10px;
+    color: blue;
+}
+.text{
+    color: white;
+}
+.input{
+    color: aliceblue;
+    font-size: 40px;
     
 }
+
