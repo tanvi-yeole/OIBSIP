@@ -5,45 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
+   
 </head>
 <body>
-    <h1 class="square">Welcome To Calculator!</h1>
-    <div></div>
-    <div class="container bg-red">
-        <div class="Row"><input class="input" type="text">  </div>
-    <div class="Row1">
-        <button class="button">C</button>
-        <button class="button">()</button>
-        <button class="button">%</button>
-        <button class="button">/</button>
-    </div>
-    <div class="Row2">
-        <button class="button">7</button>
-        <button class="button">8</button>
-        <button class="button">9</button>
-        <button class="button">*</button>
-    </div>
-    <div class="Row3">
-        <button class="button">4</button>
-        <button class="button">5</button>
-        <button class="button">6</button>
-        <button class="button">-</button>
-    </div>
-    <div class="Row4">
-        <button class="button">1</button>
-        <button class="button">2</button>
-        <button class="button">3</button>
-        <button class="button">+</button>
-    </div>
-    <div class="Row5">
-        <button class="button">+/-</button>
-        <button class="button">0</button>
-        <button class="button">.</button>
-        <button class="button">=</button>
-    </div>
-    
-   
-</div>
-<script src="script.js"></script>
+    <header class="nav">
+        <h3 class="Calculator">WELCOME TO CALCULATOR</h3>
+    </header>
+    <section class="square">
+        <div class="calc-i">
+            <div class="calc-dis"><input class="input" type="text"></div>
+        </div>
+        <div class="calc-b">
+            <div class="calc-but">
+                <div class="Row">
+                    <button class="button" id="c">C</button>
+                    <button class="button" id="para">()</button>
+                    <button class="button" id="perc">%</button>
+                    <button class="button" id="div">/</button>
+                </div>
+                <div class="Row">
+                    <button class="button">7</button>
+                    <button class="button">8</button>
+                    <button class="button">9</button>
+                    <button class="button" id="mul">*</button>
+                </div>
+                <div class="Row">
+                    <button class="button">4</button>
+                    <button class="button">5</button>
+                    <button class="button">6</button>
+                    <button class="button" id="sub">-</button>
+                </div>
+                <div class="Row">
+                    <button class="button">1</button>
+                    <button class="button">2</button>
+                    <button class="button">3</button>
+                    <button class="button" id="add">+</button>
+                </div>
+                <div class="Row">
+                    <button class="button">+/-</button>
+                    <button class="button">0</button>
+                    <button class="button">.</button>
+                    <button class="button" id="equal">=</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+   <script src="script.js"></script>
 </body>
 </html>
