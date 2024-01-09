@@ -6,8 +6,10 @@
   }
   
   body {
-    background-color: #495057;
+    background-color: #050505;
+    
   }
+  
   
   .nav {
       padding: 1rem 0;
@@ -16,6 +18,7 @@
   .Calculator {
     text-align: center;
     font-size: 2rem;
+    color: rgb(38, 96, 146);
   }
   
   .square {
@@ -27,6 +30,15 @@
     justify-content: center;
     background-color: #212529;
     border-radius: 20px;
+    background: hsla(5, 93%, 28%, 1);
+
+background: linear-gradient(90deg, hsla(5, 93%, 28%, 1) 0%, hsla(246, 81%, 25%, 1) 0%, hsla(34, 10%, 13%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(5, 93%, 28%, 1) 0%, hsla(246, 81%, 25%, 1) 0%, hsla(34, 10%, 13%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(5, 93%, 28%, 1) 0%, hsla(246, 81%, 25%, 1) 0%, hsla(34, 10%, 13%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8C1105", endColorstr="#160C71", GradientType=1 );
   }
   
   .calc-i {
