@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  /* background-color: #ffcad4; */
+  background-image: url(images/f.jpg);
+  /* background-size: 125%; */
+  background-repeat: no-repeat no-repeat;
+  background-size: cover;
+  text-align: center;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.summary {
+  display: flex;
+  margin: 1.75rem 5rem;
+}
+
+.header {
+  background-color: #0082c6;
+  padding: 20px;
+  color: #fff;
+}
+header p {
+  color: #150808;
+}
+.h1 {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+h1:hover {
+  color: rgb(142, 142, 164);
+}
+.tribute-content {
+  background-color: #150808;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(61, 54, 54, 0.1);
+  width: 100%;
+}
+
+.main-img {
+  padding: 0.75rem 1rem;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  transition: all 0.35s ease-in-out;
+}
+
+img:hover {
+  opacity: 0.7;
+}
+
+.tribute-content p {
+  line-height: 1.6;
+  color: #cbb4b4;
+  font-family: "Times New Roman", Times, serif;
+}
+
+footer {
+  background-color: rgb(121, 94, 94);
+  color: #fff;
+  padding: 1.5rem 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.bio {
+  /* font-family: "Lilita One", sans-serif; */
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.bio h3 {
+  font-size: 40px;
+  margin-bottom: 2rem;
+}
+
+.bio p {
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.container {
+  width: 100%;
+  margin: 0 2rem;
+}
