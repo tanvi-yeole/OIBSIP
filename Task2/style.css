@@ -17,11 +17,10 @@ body {
 
 .summary {
   display: flex;
-  margin: 1.75rem 5rem;
-
+  margin: 1.75rem 1rem;
 }
-@media(max-width:1000px){
-  .summary{
+@media (max-width: 1000px) {
+  .summary {
     display: flex;
     flex-direction: column;
   }
@@ -31,6 +30,12 @@ body {
   background-color: #0082c6;
   padding: 20px;
   color: #fff;
+}
+@media (max-width: 576px) {
+  .header {
+    margin: 0.25rem 0;
+  }
+
 }
 header p {
   color: #150808;
@@ -42,7 +47,7 @@ header p {
   font-size: 1rem;
 }
 h1:hover {
-  color: rgb(142, 142, 164);
+  color: rgb(67, 67, 82);
 }
 .tribute-content {
   display: flex;
@@ -83,9 +88,8 @@ img:hover {
   color: #cbb4b4;
   font-family: "Times New Roman", Times, serif;
 }
-@media (max-width:527px)
-{
-  .tribute-content{
+@media (max-width: 527px) {
+  .tribute-content {
     display: flex;
     flex-direction: row;
   }
@@ -120,41 +124,47 @@ footer {
   position: fixed;
 }
 
+@media (max-width: 527px) {
+  .bio p {
+    padding: 0;
+  }
+}
+
 .bio {
   /* font-family: "Lilita One", sans-serif; */
   display: flex;
   flex-direction: column;
   text-align: start;
 }
-@media(max-width:527px){
-  .bio{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-  }
-}
-
 .bio h3 {
-  font-size: 40px;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  /* margin-bottom: 2rem; */
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+@media (max-width: 527px) {
+  .bio h3 {
+    font-size: 1rem;
+  }
 }
 
 .bio p {
   font-size: 21px;
   line-height: 1.3;
+  padding-right: 1rem;
 }
 
 .container {
   width: 100%;
   margin: 0 2rem;
 }
-@media(max-width:527px){
-  .container{
+@media (max-width: 527px) {
+  .container {
     margin: 1rem;
   }
 }
-.points{
+.points {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -164,23 +174,42 @@ footer {
   box-sizing: border-box;
   box-shadow: 5px 5px rgb(94, 70, 70);
 }
-.Achievements{
+.Achievements {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
-  margin: 10rem ;
-  
+  margin: 5rem;
 }
-@media(max-width:527px){
-  .Achievements{
+@media (max-width: 527px) {
+  .Achievements {
     margin: 1rem;
   }
 }
-.goals{
+.goals {
   font-size: 1rem;
 }
-@media(max-width:527px){
-  body{
+@media (max-width: 527px) {
+  body {
     font-size: 10px;
   }
+}
+.goals b {
+  font-size: 1 rem;
+}
+footer b {
+  font-size: 1rem;
+  color: rgb(67, 67, 82);
+}
+footer b:hover {
+  color: rgb(38, 38, 40);
+}
+@media (max-width: 576px) {
+  .bio p {
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+  }
+}
+.images {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
 }
