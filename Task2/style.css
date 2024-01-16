@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: "Arial", sans-serif;
+  font-family: monospace;
   /* background-color: #ffcad4; */
   background-image: url(images/f.jpg);
   /* background-size: 125%; */
@@ -25,9 +25,8 @@ body {
     flex-direction: column;
   }
 }
-
-.header {
-  background-color: #0082c6;
+header {
+  background-color: #a39585;
   padding: 20px;
   color: #fff;
 }
@@ -167,12 +166,14 @@ footer {
 .points {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
   margin: 1rem 0;
   padding: 2rem;
   border: 2px solid black;
   box-sizing: border-box;
   box-shadow: 5px 5px rgb(94, 70, 70);
+  background-color: #c5afa0;
 }
 .Achievements {
   display: flex;
