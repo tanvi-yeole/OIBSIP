@@ -1,154 +1,139 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  body {
-    background-image: url(images.jpeg);
-    background-size:cover;
-    /* background: transparent; */
-    opacity: 1;
-  }
-  
-  
-  .nav {
-      padding: 1rem 0;
-  }
-  
-  .Calculator {
-    text-align: center;
-    font-size: 2rem;
-    color: rgb(38, 96, 146);
-  }
-  
-  .square {
-    /* padding: ; */
-    margin: 1.5rem 15rem;
-    display: flex;
-    flex-direction: column;
-    /* border: 2px solid black; */
-    justify-content: center;
-    /* background-color: #212529; */
-    border-radius: 20px;
-    /* background: hsla(5, 93%, 28%, 1); */
-    background: transparent;
-    
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
+body {
+  background-image: url(images/f.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
 
-/* background: linear-gradient(90deg, hsla(5, 93%, 28%, 1) 0%, hsla(246, 81%, 25%, 1) 0%, hsla(34, 10%, 13%, 1) 100%);
+.nav {
+  padding: 1rem 0;
+}
 
-background: -moz-linear-gradient(90deg, hsla(5, 93%, 28%, 1) 0%, hsla(246, 81%, 25%, 1) 0%, hsla(34, 10%, 13%, 1) 100%);
+.Calculator {
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(38, 96, 146);
+}
 
-background: -webkit-linear-gradient(90deg, hsla(5, 93%, 28%, 1) 0%, hsla(246, 81%, 25%, 1) 0%, hsla(34, 10%, 13%, 1) 100%);
+.square {
+  margin: 1.5rem 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  border: 1px solid;
+  border-radius: 10px;
+}
 
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8C1105", endColorstr="#160C71", GradientType=1 ); */
-  }
-  
-  .calc-i {
-    /* border: 2px solid black; */
-    padding: 0 10rem;
-    /* border-radius: 20px; */
-  }
-  .calc-dis {
-    padding: 0.75rem 0;
-    text-align: center;
-  }
-  .calc-dis input {
-    width: 100%;
-    padding: 0.75rem 0.75rem;
-    border-radius: 10px;
-    border: 1px solid black;
-    font-size: 25px;
-    background-color: #343a40;
-    background: transparent;
-  }
-  .calc-b {
-    display: flex;
-    flex-direction: column;
-    /* border: 2px solid black; */
-    padding: 5px;
-    /* text-align: center; */
-    /* font-size: 2rem; */
-  }
+.calc-i {
+  padding: 0 10rem;
+}
+
+.calc-dis {
+  padding: 0.75rem 0;
+  text-align: center;
+}
+.calc-dis input {
+  width: 100%;
+  padding: 0.75rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 25px;
+  background-color: #343a40;
+  background: transparent;
+}
+.calc-b {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.calc-but {
+  width: 100%;
+  padding: 0rem 10dvw;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.Row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  margin: auto;
+  gap: 15px;
+}
+
+.button {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 0.25rem;
+  font-size: 25px;
+  margin-top: 15px;
+  border-radius: 1000px;
+  border: 1px solid rgb(14, 11, 11);
+  cursor: pointer;
+  outline: none;
+  background-color: #343a40;
+  box-shadow: #ccd2d8;
+  color: #000204;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.button:hover {
+  background-color: #d0c9d0cc;
+  color: rgb(17, 14, 14);
+}
+
+@media (max-width: 986px) {
   .calc-but {
-    width: 100%;
-    padding: 0rem 10dvw;
-    /* justify-content: center; */
-    cursor: pointer;
-    font-size: 2rem;
+    padding: 0 1vw;
   }
-  .Row {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    margin: auto;
-    gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .square {
+    margin: 1.5rem 2.25rem;
   }
-  
-  .button {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    padding: 1.5rem 0.25rem;
-    font-size: 25px;
-    margin-top: 15px;
-    border-radius: 1000px;
-    border: 1px solid rgb(14, 11, 11);
-    cursor: pointer;
-    outline: none;
-    background-color: #343a40;
-    box-shadow: #ccd2d8;
-    color: #000204;
-    background: transparent;
+
+  .calc-i {
+    padding: 0 1rem;
   }
-  .button:hover {
-      background-color: #e4aae0;
-      color: rgb(17, 14, 14);
-  }
-  
-  @media (max-width: 986px) {
-      .calc-but {
-          padding: 0 1vw;
-      }
-  }
-  
-  @media (max-width: 768px) {
-      .square {
-          margin: 1.5rem 2.25rem;
-      }
-  
-      .calc-i {
-          padding: 0 1rem;
-      }
-  }
-  #c{
-      color: #f75a05;
-  }
-  #para{
-      color:rgb(1, 98, 1)
-  }
-  #perc{
-      color:rgb(2, 78, 2)
-  }
-  #div{
-      color:rgb(2, 67, 2)
-  }
-  #mul{
-      color:rgb(4, 63, 4)
-  }
-  #sub{
-      color:rgb(2, 54, 2)
-  }
-  #add{
-      color:rgb(3, 66, 3)
-  }
-  #equal{
-      color: #dae3e3;
-      background-color: rgb(147, 121, 141);
-  }
-  #equal:hover{
-    background-color: #8b8b91;
-  }
+}
+#c {
+  color: #f75a05;
+}
+#para {
+  color: rgb(1, 98, 1);
+}
+#perc {
+  color: rgb(2, 78, 2);
+}
+#div {
+  color: rgb(2, 67, 2);
+}
+#mul {
+  color: rgb(4, 63, 4);
+}
+#sub {
+  color: rgb(2, 54, 2);
+}
+#add {
+  color: rgb(3, 66, 3);
+}
+#equal {
+  color: #dae3e3;
+  background-color: rgb(147, 121, 141);
+}
+#equal:hover {
+  background-color: #8b8b91;
+}

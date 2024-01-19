@@ -10,12 +10,17 @@ Array.from(buttons).forEach((button)=>{
       string = ""
       document.querySelector('input').value = string;
     }
-    else if(e.target.innerHTML == '+/-'){
-      string = "(-"
+    else if(e.target.innerHTML == 'x'){
+      string = string.slice(0, -1);
       document.querySelector('input').value = string;
     }
-    else if(e.innerHTML == "()"){
-      string = "(" + string + ")";
+    // 
+    else if(e.target.innerHTML == "()"){
+      if (string && string.endsWith("")) {
+        string = string + ")";
+      } else {
+        string = string + "(";
+      }
       document.querySelector('input').value = string;
     }
     else{ 
