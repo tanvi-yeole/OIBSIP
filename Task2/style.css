@@ -1,13 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: monospace;
-  /* background-color: #ffcad4; */
   background-image: url(images/f.jpg);
-  /* background-size: 125%; */
   background-repeat: no-repeat no-repeat;
   background-size: cover;
   text-align: center;
@@ -19,6 +18,12 @@ body {
   display: flex;
   margin: 1.75rem 1rem;
 }
+
+.points ul li {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
 @media (max-width: 1000px) {
   .summary {
     display: flex;
@@ -26,7 +31,7 @@ body {
   }
 }
 header {
-  background-color: #a39585;
+  background-color: #958778;
   padding: 20px;
   color: #fff;
 }
@@ -62,15 +67,6 @@ h1:hover {
   flex: 1;
   object-fit: cover;
 }
-/* @media (max-width:1000px)
-{
-  .main-img{
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-  }
-} */
 
 img {
   max-width: 100%;
@@ -93,34 +89,12 @@ img:hover {
     flex-direction: row;
   }
 }
-/* @media (max-width:px)
-{
-  .main-img{
-    display: flex;
-    flex-direction: column;
-    padding-top: 10rem;
-
-  }
-} */
-/* */
-/* @media(max-width:400px)
-{
-  .summary{
-    display: flex;
-    flex-direction: row;
-    padding: 2px;
-    margin: 2rem 0;
-  }
-} */
 
 footer {
   background-color: rgb(121, 94, 94);
   color: #fff;
   padding: 1.5rem 0;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  position: fixed;
 }
 
 @media (max-width: 527px) {
@@ -130,17 +104,16 @@ footer {
 }
 
 .bio {
-  /* font-family: "Lilita One", sans-serif; */
   display: flex;
   flex-direction: column;
   text-align: start;
 }
 .bio h3 {
   font-size: 2rem;
-  /* margin-bottom: 2rem; */
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+  margin-bottom: 1rem;
 }
 @media (max-width: 527px) {
   .bio h3 {
