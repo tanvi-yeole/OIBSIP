@@ -10,15 +10,27 @@
 <body>
     <div class="container">
         <div class="todo">
-            <h3>Todo-List <img src="img1.png"></h3>
+            <div class="heading">
+                <h3>Todo-List</h3>
+                <img src="images/img1.png">
+            </div>
         <div class="row">
-            <input type="text" id="input-box" placeholder="Add your text">
-            <button>Add</button>
+            <input class="todo-input" type="text" id="input-box" placeholder="Add your text">
+            <button class="btn">Add</button>
         </div>
         <ul id="list-container">
-            <li>Task 1 <i class="bi bi-check-circle" id="unfill"></i><i class="bi bi-check-circle-fill" id="fill"></i></li>
-            <li>Task 2</li>
-            <li>Task 3</li>
+            <li>
+                <input class="todo-check" type="checkbox" name="list-item" id="">
+                <label for="list-item">Task 1</label>
+            </li>
+            <li>
+                <input class="todo-check" type="checkbox" name="list-item" id="">
+                <label for="list-item">Task 2</label>
+            </li>
+            <li>
+                <input class="todo-check" type="checkbox" name="list-item" id="">
+                <label for="list-item">Task 3</label>
+            </li>
         </ul>
     </div>
     </div>
