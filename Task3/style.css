@@ -8,7 +8,10 @@
 .container {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, hsl(188, 9%, 32%), #b0c4b1);
+  background: url('https://images.unsplash.com/photo-1591091276770-c430bd287ff1?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 2rem 25rem;
   display: flex;
   justify-content: center;
@@ -16,7 +19,9 @@
 }
 .todo {
   width: 100%;
-  background: #fff;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  border: 1px solid;
   border-radius: 10px;
 }
 .todo .heading {
@@ -79,11 +84,33 @@ ul li {
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: space-between;
 }
-ul li label{
+
+ul li p {
+  flex: 1;
+  color: white;
+}
+
+ul li input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+ul li input[type="checkbox"]:checked + p {
   text-decoration: line-through;
 }
-ul li label::before{
-  text-decoration: line-through;
-  
-}
+
