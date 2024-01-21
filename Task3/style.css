@@ -109,6 +109,17 @@ ul li input[type="checkbox"] {
   color: white;
   transition: all 0.3s ease-in-out;
 }
+.edit-btn {
+  background-color: #3498db;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
 
 ul li input[type="checkbox"]:checked + p {
   text-decoration: line-through;
