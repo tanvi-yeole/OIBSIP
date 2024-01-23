@@ -2,8 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
 }
 .container {
   width: 100%;
@@ -16,24 +16,47 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
+
 .todo {
   width: 100%;
   background: transparent;
   backdrop-filter: blur(8px);
   border: 1px solid;
   border-radius: 10px;
+  max-height: 500px;
+  overflow-y: auto;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f0f8ff;
+  transition: all .35s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #f0f8ffd3;
+}
+
 .todo .heading {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 1rem 0;
 }
-.todo .heading img {
-  height: 50px;
-  width: 50px;
-  margin: 40px 30px;
+
+.todo .heading h3 {
+  color: white;
 }
+
 .row {
   display: flex;
   align-items: center;
@@ -49,7 +72,10 @@
   border: 1px solid;
 }
 
-.todo-check {
+.todo-checkbox {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -72,13 +98,13 @@
   background-color: #665e5ed5;
 }
 
-ul {
+.todo-list {
   display: flex;
   flex-direction: column;
   padding: 0 3rem;
 }
 
-ul li {
+.todo-list li{
   list-style: none;
   margin: 0.75rem 0;
   display: flex;
@@ -87,18 +113,18 @@ ul li {
   justify-content: space-between;
 }
 
-ul li p {
+.todo-list li span {
   flex: 1;
   color: white;
-}
+} 
 
-ul li input[type="checkbox"] {
+.todo-list input[type="checkbox"] {
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
 
-.delete-btn {
+.btn-delete {
   background-color: #e74c3c;
   padding: 0.5rem 1rem;
   border: none;
@@ -109,7 +135,7 @@ ul li input[type="checkbox"] {
   color: white;
   transition: all 0.3s ease-in-out;
 }
-.edit-btn {
+.btn-update {
   background-color: #3498db;
   padding: 0.5rem 1rem;
   border: none;
@@ -121,7 +147,26 @@ ul li input[type="checkbox"] {
   transition: all 0.3s ease-in-out;
 }
 
-ul li input[type="checkbox"]:checked + p {
+.complete-heading {
+  padding: 0.25rem 3rem;
+  color: white;
+}
+
+#list-container::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: #b7b7b7;
+  margin: 0.75rem 0;
+}
+
+.completed span {
   text-decoration: line-through;
 }
 
+.todo-task-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

@@ -1,68 +1,77 @@
-const inputbox = document.getElementById("input-box");
-const listcontainer = document.getElementById("list-container");
-const completetasklist = document.getElementById("completed-task");
-const taskcheck = document.querySelectorAll(".check-box");
-listcontainer.innerHTML = localStorage.getItem("listcontainer");
-if(check.checked){
-  completetasklist.appendChild(li);
-}
-else{
-  listcontainer.appendChild(li);
-}
+const todoInput = document.getElementById("input-box");
+const todoList = document.getElementById("list-container");
+const completedList = document.getElementById("completed-task");
 
-function addtask() {
-  if (inputbox.value === "") {
-    alert("You must write something!");
-  } else {
-    let li = document.createElement("li");
+document.addEventListener("DOMContentLoaded", loadTasks);
 
-    let check = document.createElement("input");
-    check.type = "checkbox";
-    check.classList.add("check-box");
-     check.addEventListener('change', () => {
-      if (check.checked) {
-        completetasklist.appendChild(li);
-      } else {
-        listcontainer.appendChild(li);
-      }
-    });
-    
-    let p = document.createElement("p");
-    p.innerHTML = inputbox.value;
+function loadTasks() {
+  const storedTasks = localStorage.getItem("tasks");
+  const storedCompletedTasks = localStorage.getItem("completedTasks");
 
-    let deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("delete-btn");
-    deleteBtn.innerHTML = "Delete";
-
-    let EditBtn = document.createElement("button");
-    EditBtn.classList.add("edit-btn");
-    EditBtn.innerHTML = "Edit";
-
-    
-    li.appendChild(check);
-    li.appendChild(p);
-    li.appendChild(deleteBtn);
-    li.appendChild(EditBtn);
-    listcontainer.appendChild(li);
-    localStorage.setItem('tasks', JSON.stringify(Array.from(listcontainer.children).map(li => li.textContent)));
-
-    deleteBtn.addEventListener('click', (event)=> {
-      if (event.target.classList.contains("delete-btn")) {
-        event.target.parentElement.remove();
-      }
-    });
-    EditBtn.addEventListener('click', (event)=> {
-      if (event.target.classList.contains("edit-btn")) {
-        let edit = prompt("Edit your task");
-        let p = event.target.parentElement.querySelector("p");
-        p.innerHTML = edit;
-      }
-    });
+  if (storedTasks) {
+    todoList.innerHTML = storedTasks;
   }
-  
-saveToLocalStorage();
-  inputbox.value = "";
+
+  if (storedCompletedTasks) {
+    completedList.innerHTML = storedCompletedTasks;
+  }
 }
-function saveToLocalStorage() {
-  localStorage.setItem("listcontainer", listcontainer.innerHTML);
+
+function saveTasks() {
+  localStorage.setItem("tasks", todoList.innerHTML);
+  localStorage.setItem("completedTasks", completedList.innerHTML);
+}
+
+function addTodo() {
+  const todoText = todoInput.value.trim();
+
+  if (todoText === "") {
+    alert("Please enter a valid task.");
+    return;
+  }
+
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <input type="checkbox" onchange="completeTodo(this)">
+    <span>${todoText}</span>
+    <div class="todo-task-item">
+        <button class="btn-update" onclick="editTodo(this)">Edit</button>
+        <button class="btn-delete" onclick="deleteTodo(this)">Delete</button>
+    </div>
+    `;
+
+  todoList.appendChild(li);
+  todoInput.value = "";
+
+  saveTasks();
+}
+
+function editTodo(button) {
+  const li = button.parentNode.parentNode;
+  const span = li.querySelector("span");
+  const newText = prompt("Edit task:", span.textContent);
+
+  if (newText !== null) {
+    span.textContent = newText;
+    saveTasks();
+  }
+}
+
+function deleteTodo(button) {
+  const li = button.parentNode.parentNode;
+  li.remove();
+  saveTasks();
+}
+
+function completeTodo(checkbox) {
+  const li = checkbox.parentNode;
+
+  if (checkbox.checked) {
+    li.classList.add("completed");
+    completedList.appendChild(li);
+  } else {
+    li.classList.remove("completed");
+    todoList.appendChild(li);
+  }
+  saveTasks();
 }
