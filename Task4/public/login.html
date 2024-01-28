@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VerifyMe | Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="min-vh-100">
+    <header>
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark p-3">
+        <div class="container">
+          <a class="navbar-brand" href="/">VerifyMe Authenticator</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse ms-auto"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <a href="/login"
+                ><button class="btn btn-success mx-1">Login</button></a
+              >
+              <a href="/register"
+                ><button class="btn btn-success mx-1">Register</button></a
+              >
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mt-5 text-center">
+      <div class="w-50 mx-auto border border-tertiary rounded p-3 py-4 px-5">
+        <h4 class="mb-3">Login to VerifyMe</h4>
+        <form id="loginForm">
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="name@example.com"
+              name="email"
+              required
+            />
+            <label for="email">Email address</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Password"
+              name="password"
+              required
+            />
+            <label for="password">Password</label>
+          </div>
+          <div class="my-2">
+            <a
+              href="/register"
+              class="link-offset-2 link-underline link-underline-opacity-100"
+            >
+              Not registered yet? Click here to Get Started
+            </a>
+          </div>
+          <button class="btn btn-primary mt-1 w-100" type="submit">
+            Login
+          </button>
+        </form>
+      </div>
+      <div id="alert-container"></div>
+    </main>
+
+    <footer class="py-3 my-4 border-top fixed-bottom">
+      <div
+        class="container d-flex flex-wrap justify-content-between align-items-center"
+      >
+        <div class="col-md-4 d-flex align-items-center">
+          <a
+            href="/"
+            class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
+          ></a>
+          <span class="mb-3 mb-md-0 text-body-secondary"
+            >© 2024 Tanvi Yeole</span
+          >
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#">
+              <i class="social-icons bi bi-linkedin"></i>
+            </a>
+          </li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#">
+              <i class="social-icons bi bi-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const loginForm = document.getElementById("loginForm");
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const data = new FormData(loginForm);
+        const formDataJSON = {};
+        data.forEach((value, key) => {
+          formDataJSON[key] = value;
+        });
+
+        fetch("/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formDataJSON),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.message === "success") {
+              loginForm.reset();
+              window.location.href = "/";
+              const alertContainer = document.getElementById("alert-container");
+              alertContainer.innerHTML = `
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>Successfully Logged In</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          `;
+            } else {
+              const alertContainer = document.getElementById("alert-container");
+              alertContainer.innerHTML = `
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Login Failed</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          `;
+            }
+          });
+      });
+    </script>
+  </body>
+</html>
