@@ -49,7 +49,7 @@
         class="w-50 mx-auto border border-tertiary rounded p-3 py-4 px-md-5 px-3"
       >
         <h4 class="mb-3">Create an Account</h4>
-        <form id="registerForm">
+        <form id="registerForm" onsubmit="return validatePassword()">
           <div class="row">
             <div class="col-md-6">
               <div class="form-floating mb-3">
@@ -98,6 +98,7 @@
               id="password"
               placeholder="Password"
               name="password"
+              oninput="updatePasswordCheckmarks()"
               required
             />
             <label for="password">Password</label>
@@ -110,6 +111,24 @@
               Already Registered? Click here to Login
             </a>
           </div>
+
+          <div id="password-validation-checks">
+            <ul class="list-group mb-3 text-start">
+              <li class="list-group-item" id="capital-check">
+                Include a Capital Letter
+              </li>
+              <li class="list-group-item" id="digit-check">Include a Digit</li>
+              <li class="list-group-item" id="special-check">
+                Include a Special Character (@,&,#,$,!)
+              </li>
+              <li class="list-group-item" id="length-check">
+                Password should be 8 characters long
+              </li>
+            </ul>
+          </div>
+
+          <div id="password-validation-message" class="text-danger"></div>
+
           <button class="btn btn-primary mt-1 py-2 w-100" type="submit">
             Register
           </button>
@@ -145,7 +164,7 @@
           .then((data) => {
             if (data.message === "User registered successfully") {
               registerForm.reset();
-              window.location.href = '/';
+              window.location.href = "/";
               const alertContainer = document.getElementById("alert-container");
               alertContainer.innerHTML = `
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -156,6 +175,56 @@
             }
           });
       });
+
+      function updatePasswordCheckmarks() {
+        const password = document.getElementById("password").value;
+        const capitalCheck = document.getElementById("capital-check");
+        const digitCheck = document.getElementById("digit-check");
+        const specialCheck = document.getElementById("special-check");
+        const lengthCheck = document.getElementById("length-check");
+
+        // Check if the password contains a capital letter
+        capitalCheck.innerHTML = password.match(/[A-Z]/)
+          ? "&#x2713; Include a Capital Letter"
+          : "&#x2718; Include a Capital Letter";
+
+        // Check if the password contains a digit
+        digitCheck.innerHTML = password.match(/\d/)
+          ? "&#x2713; Include a Digit"
+          : "&#x2718; Include a Digit";
+
+        // Check if the password contains a special character
+        specialCheck.innerHTML = password.match(
+          /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/
+        )
+          ? "&#x2713; Include a Special Character (@,&,#,$,!)"
+          : "&#x2718; Include a Special Character (@,&,#,$,!)";
+
+        // Check if the password is at least 8 characters long
+        lengthCheck.innerHTML =
+          password.length >= 8
+            ? "&#x2713; Password should be 8 characters long"
+            : "&#x2718; Password should be 8 characters long";
+      }
+
+      function validatePassword() {
+        const password = document.getElementById("password").value;
+        const passwordRegex =
+          /^(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        const validationMessage = document.getElementById(
+          "password-validation-message"
+        );
+
+        if (!passwordRegex.test(password)) {
+          validationMessage.innerText =
+            "Password must contain at least one capital letter, one digit, one special character, and be at least 8 characters long.";
+          return false;
+        }
+
+        validationMessage.innerText = "";
+        return true;
+      }
     </script>
   </body>
 </html>

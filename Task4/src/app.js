@@ -6,10 +6,16 @@ const User = require("./models/User");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
+const session = require("express-session");
+const cookieParser = require("cookie-parser")
+const jwt = require("jsonwebtoken");
 const port = 5000;
 
-app.use(express.json());
+const JWT_SECRET = "JWT-SECRET";
 
+app.use(express.static('public'))
+app.use(express.json());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(
@@ -19,10 +25,34 @@ app.use(
   })
 );
 
-//ENDPOINTS
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
+const verifyToken = (req, res, next) => {
+  const userToken = req.cookies.token;
+
+  if (!userToken) {
+    return res.redirect("/login");
+  }
+
+  jwt.verify(userToken, JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.redirect("/login");
+    }
+
+    req.user = decoded;
+    next();
+  });
+};
+
+//ENDPOINTS
 //URL: locahost:5000
-app.get("/", (req, res) => {
+app.get("/", verifyToken, (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
@@ -89,7 +119,21 @@ app.post("/auth/login", async (req, res) => {
       const checkPass = await bcrypt.compare(password, user.password);
 
       if (user && checkPass) {
-        res.status(200).json({ message: "success" });
+        jwt.sign(
+          {
+            email,
+            id: user._id,
+          },
+          JWT_SECRET,
+          (error, token) => {
+            if (error) {
+              throw new Error(error);
+            }
+            res
+              .cookie("token", token)
+              .json({ authToken: token, message: "success" });
+          }
+        );
       } else if (!checkPass) {
         res.status(400).json({ error: "Incorrect Credentials" });
       }
@@ -101,6 +145,17 @@ app.post("/auth/login", async (req, res) => {
     res.status(400).end();
   }
 });
+
+//localhost:5000/auth/logout
+//METHOD: GET
+
+app.get("/auth/logout", (req, res) => {
+  res.clearCookie("token");
+  res.status(200).json({ message: "Signout successful" });
+});
+
+app.get("/auth/getUser", (req,res)=> {
+})
 
 app.listen(port, () => {
   console.log(`Server Running on localhost:${port}`);

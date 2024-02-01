@@ -1,3 +1,15 @@
 .social-icons {
     font-size: 20px;
 }
+.profile-picture {
+    max-width: 70%;
+    height: auto;
+    /* overflow: hidden; */
+}
+h1{
+    font-family: 'Lobster', sans-serif;
+  }
+  body {
+    background-image: url("public/images/bck.jpg");
+    background-size: cover;
+}
