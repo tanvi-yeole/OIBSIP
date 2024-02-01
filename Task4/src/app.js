@@ -13,7 +13,8 @@ const port = 5000;
 
 const JWT_SECRET = "JWT-SECRET";
 
-app.use(express.static('public'))
+//app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -158,5 +159,5 @@ app.get("/auth/getUser", (req,res)=> {
 })
 
 app.listen(port, () => {
-  console.log(`Server Running on localhost:${port}`);
+  console.log (`Server is running on port ${port}`);
 });
